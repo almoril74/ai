@@ -7,6 +7,7 @@ from datetime import datetime
 from typing import Optional, Dict, Any
 from enum import Enum
 import json
+import logging
 import structlog
 from pathlib import Path
 

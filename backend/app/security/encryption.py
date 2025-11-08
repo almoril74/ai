@@ -5,7 +5,7 @@ Implementiert AES-256 Verschlüsselung auf Feld-Ebene
 
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes
-from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2
+from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.hazmat.backends import default_backend
 import hashlib
 import base64
@@ -101,7 +101,7 @@ class EncryptionService:
         combined = f"{patient_id}:{random_data.hex()}".encode('utf-8')
 
         # Hash mit PBKDF2 für zusätzliche Sicherheit
-        kdf = PBKDF2(
+        kdf = PBKDF2HMAC(
             algorithm=hashes.SHA256(),
             length=32,
             salt=self.master_key[:16],  # Verwende Teil des Master-Keys als Salt

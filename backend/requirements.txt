@@ -45,6 +45,3 @@ httpx==0.26.0
 # Redis (Session-Management)
 redis==5.0.1
 hiredis==2.3.2
-
-# CORS
-python-cors==1.0.0
